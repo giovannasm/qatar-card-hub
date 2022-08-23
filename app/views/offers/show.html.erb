@@ -1,2 +1,12 @@
 <h1>Offer</h1>
-  
+
+<%= @offer.number %>
+<%= @offer.player_name %>
+<%= @offer.description %>
+
+<%= cl_image_tag @offer.photo.key, height: 600, width: 400, crop: :fill %>
+
+
+<%= link_to "Delete",
+  offer_path(@offer),
+  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger"%>
