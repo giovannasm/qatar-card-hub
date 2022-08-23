@@ -1,0 +1,7 @@
+<div class = "container d-flex py-5 justify-content-center">
+  <%= simple_form_for [@offer, @transaction] do |f| %>
+    <%= f.input :buyer_card_id, collection: Offer.where(seller: current_user) %>
+    <%= f.submit class: "btn btn-dark" %>
+  <% end %>
+
+</div>

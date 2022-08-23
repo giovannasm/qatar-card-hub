@@ -1,0 +1,14 @@
+<div class = "container d-flex py-5 justify-content-center">
+  <%= simple_form_for (@offer) do |f| %>
+    <%= f.input :number %>
+    <%= f.input :player_name %>
+    <%= f.input :team %>
+    <%= f.input :special %>
+    <%= f.input :description %>
+    <%= f.input :photo, as: :file %>
+    <%= f.submit class: "btn btn-dark" %>
+  <% end %>
+
+</div>
+
+  <%= link_to "Back", offers_path%>
