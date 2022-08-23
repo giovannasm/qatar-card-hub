@@ -7,6 +7,8 @@
 <%= cl_image_tag @offer.photo.key, height: 600, width: 400, crop: :fill %>
 
 
-<%= link_to "Delete",
+<%= link_to "Delete Offer",
   offer_path(@offer),
   data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger"%>
+
+<%= link_to "Edit Offer", edit_offer_path(@offer) %>

@@ -13,13 +13,27 @@ class OffersController < ApplicationController
   end
 
   def create
-    @offer = Offer.new(offer_params)
+    @offer = Offer.new(offer_params_new)
     @offer.user = current_user
 
     if @offer.save
       redirect_to offer_path(@offer)
     else
       render :new, status: :unprocessable_entity
+    end
+  end
+
+  def edit
+    @offer = Offer.find(params[:id])
+  end
+
+  def update
+    @offer = Offer.find(params[:id])
+
+    if @offer.update(offer_params_edit)
+      redirect_to offer_path(@offer)
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
@@ -31,7 +45,11 @@ class OffersController < ApplicationController
 
   private
 
-  def offer_params
+  def offer_params_edit
+    params.require(:offer).permit(:description)
+  end
+
+  def offer_params_new
     params.require(:offer).permit(:number, :player_name, :special, :team, :description, :photo, :user_id)
   end
 end
