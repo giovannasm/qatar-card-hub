@@ -2,7 +2,6 @@ class TransactionsController < ApplicationController
 
   def index
     @transactions = Transaction.all
-    raise
   end
 
   def new
