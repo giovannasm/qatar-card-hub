@@ -3,7 +3,6 @@
 
   <h1 class="fw-bolder text-center py-5">Offer</h1>
 
-
   <div class="row">
       <div class="col-md-auto">
           <%= cl_image_tag @offer.photo.key, height: 600, width: 400, crop: :fill %>
@@ -17,6 +16,8 @@
       <%= link_to "Delete",
         offer_path(@offer),
         data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger"%>
+        
+        <%= link_to "Edit Offer", edit_offer_path(@offer) %>
     </div>
 
       </div>
