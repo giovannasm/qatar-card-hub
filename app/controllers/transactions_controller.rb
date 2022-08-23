@@ -19,7 +19,7 @@ class TransactionsController < ApplicationController
     @transaction.seller_card = @offer
     #Por default a transação não foi aceita: Accepted é false.
 
-    if @offer.save
+    if @transaction.save
       redirect_to offer_path(@offer)
     else
       render :new, status: :unprocessable_entity
