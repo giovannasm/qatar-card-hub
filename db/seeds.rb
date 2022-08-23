@@ -1,4 +1,7 @@
-require 'uri'
+require 'open-uri'
+
+Offer.destroy_all
+User.destroy_all
 
 puts 'creating users'
 
@@ -14,10 +17,10 @@ puts 'users created'
 
 puts 'creating offers'
 
-url_neymar = 'https://asset.cloudinary.com/giovannasm/e30181383c52cb97d6dda5b27fec2fd5'
-url_cr7 = 'https://asset.cloudinary.com/giovannasm/30097744cac7074d9cef557d84fcc467'
-url_vinijr = 'https://asset.cloudinary.com/giovannasm/e63b228a52a71d19301f1d6e66944a44'
-url_messi = 'https://asset.cloudinary.com/giovannasm/06717f5edbb6f456f4bdea1775e31b02'
+url_neymar = 'https://res.cloudinary.com/giovannasm/image/upload/c_pad,b_auto:predominant,fl_preserve_transparency/v1661274467/zz76qvx2zvhey20m6svu.jpg'
+url_cr7 = 'https://res.cloudinary.com/giovannasm/image/upload/c_pad,b_auto:predominant,fl_preserve_transparency/v1661282610/cr7_f9fjl5.jpg'
+url_vinijr = 'https://res.cloudinary.com/giovannasm/image/upload/c_pad,b_auto:predominant,fl_preserve_transparency/v1661282610/vinijr_aonnql.jpg'
+url_messi = 'https://res.cloudinary.com/giovannasm/image/upload/c_pad,b_auto:predominant,fl_preserve_transparency/v1661282610/messi_xs2qjb.jpg'
 
 10.times do
   offer = Offer.new(number: rand(1..100),
@@ -25,10 +28,10 @@ url_messi = 'https://asset.cloudinary.com/giovannasm/06717f5edbb6f456f4bdea1775e
                     team: "Brasil",
                     special: false,
                     description: 'Quero qualquer outro jogador',
-                    user_id: rand(1..10))
+                    user: User.all.sample)
 
   file = URI.open(url_neymar)
-  offer.photo.attach(io: file, filename: 'Neymar', content_type: 'image/jpg')
+  offer.photo.attach(io: file, filename: 'Neymar.jpg', content_type: 'image/jpg')
   offer.save!
 end
 
@@ -38,10 +41,10 @@ end
                     team: "Portugal",
                     special: false,
                     description: 'Quero qualquer outro jogador',
-                    user_id: 2)
+                    user: User.all.sample)
 
   file = URI.open(url_cr7)
-  offer.photo.attach(io: file, filename: 'Neymar', content_type: 'image/jpg')
+  offer.photo.attach(io: file, filename: 'CRonaldo.jpg', content_type: 'image/jpg')
   offer.save!
 end
 
@@ -51,10 +54,10 @@ end
                     team: "Brasil",
                     special: false,
                     description: 'Quero qualquer outro jogador',
-                    user_id: 2)
+                    user: User.all.sample)
 
   file = URI.open(url_vinijr)
-  offer.photo.attach(io: file, filename: 'Neymar', content_type: 'image/jpg')
+  offer.photo.attach(io: file, filename: 'ViniJr.jpg', content_type: 'image/jpg')
   offer.save!
 end
 
@@ -64,10 +67,10 @@ end
                     team: "Argentina",
                     special: false,
                     description: 'Quero qualquer outro jogador',
-                    user_id: 2)
+                    user: User.all.sample)
 
   file = URI.open(url_messi)
-  offer.photo.attach(io: file, filename: 'Neymar', content_type: 'image/jpg')
+  offer.photo.attach(io: file, filename: 'Messi.jpg', content_type: 'image/jpg')
   offer.save!
 end
 
