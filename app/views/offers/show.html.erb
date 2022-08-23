@@ -1,7 +1,9 @@
 <h1>Offer</h1>
 
-<%= @offer.number class:"number" %>
-<%= @offer.player_name %>
+<div class= "player-number">
+  <%= @offer.number %>
+  <%= @offer.player_name %>
+</div>
 <%= @offer.description %>
 
 <%= cl_image_tag @offer.photo.key, height: 600, width: 400, crop: :fill %>
