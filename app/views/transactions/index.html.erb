@@ -1,0 +1,9 @@
+<%# # 1. Index onde todas as transactions não foram aceitas e que o seller == current_user
+# 2. Display no Index
+# 3. Criar um link de aceite que vai levar pra toda de update de transactions %>
+
+<% @transactions.each do |transaction| %>
+  <% if transaction.accepted == false && transaction.seller == current_user%>
+    <%= transaction.offer.player_name %>
+  <% end %>
+<% end %>
