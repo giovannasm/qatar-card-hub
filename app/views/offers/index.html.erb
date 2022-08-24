@@ -1,22 +1,6 @@
 <div class="container">
-  <h1>Create your offer</h1>
-  <p>Show other users your card(s) & see if there's anyone interested</p>
+  <h1>Browse offers</h1>
+  <p>What are you looking for?</p>
 </div>
 
-<div class="container py-5">
-  <div class="d-flex justify-content-between mb-3 align-items-center ">
-    <h2 class="mb-0">Offers</h2>
-    <ul>
-      <% @offers.each do |offer| %>
-        <li>
-          <%= cl_image_tag offer.photo.key, height: 600, width: 400, crop: :fill %>
-          <%= link_to 'Offer' , offer_path(offer)%>
-        </li>
-      <% end %>
-    </ul>
-    <%= link_to "Let the game begin!", new_offer_path, class: "btn btn-flat" %>
-  </div>
-  <div class="row">
-    <%# <%= render "offer", offers: @offers %>
-  </div>
-</div>
+<%= render "offercard", offers: @offers %>
