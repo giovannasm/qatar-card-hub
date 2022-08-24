@@ -1,17 +1,6 @@
-<div class="container py-5">
-  <div class="d-flex justify-content-between mb-3 align-items-center ">
-    <h2 class="mb-0">Offers</h2>
-    <ul>
-      <% @offers.each do |offer| %>
-        <li>
-          <%= cl_image_tag offer.photo.key, height: 600, width: 400, crop: :fill %>
-          <%= link_to 'Offer' , offer_path(offer)%>
-        </li>
-      <% end %>
-    </ul>
-    <%= link_to "Insert a new offer", new_offer_path, class: "btn btn-flat" %>
-  </div>
-  <div class="row">
-    <%# <%= render "offer", offers: @offers %>
-  </div>
+<div>
+  <h1>Your offers</h1>
+  <p>All your card available for exchange</p>
 </div>
+
+<%= render "offercard", offers: @offers %>
