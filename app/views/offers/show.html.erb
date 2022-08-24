@@ -9,9 +9,8 @@
     <p class="description fw-normal">Número da figurinha: <%= @offer.number %></p>
     <p class="description fw-normal">Pedido de troca: <%= @offer.description %></p>
 
-    <h3>Dados de contato</h3>
+    <h3>Dados do usuário</h3>
     <p class="description fw-normal">Nome: <%= @offer.user.first_name %></p>
-    <p class="description fw-normal">Email: <%= @offer.user.email %></p>
 
     <% if @offer.user == current_user %>
       <%= link_to "Delete", offer_path(@offer), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger" %>
