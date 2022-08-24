@@ -3,10 +3,14 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 200px;
+  height: 100px;
   padding: 0px 50px;
-  color: rgba(0,0,0,0.7);
+  color: rgba(210, 204, 204, 0.7);
+  position: sticky;
+  bottom: 0px;
+  width: 100%;
 }
+
 .footer-links {
   display: flex;
   align-items: center;
@@ -26,6 +30,10 @@
 }
 
 .bola {
-  width: 60px;
+  width: 40px;
   border-radius: 50%;
+}
+
+.logoqatar {
+  width: 100px;
 }
