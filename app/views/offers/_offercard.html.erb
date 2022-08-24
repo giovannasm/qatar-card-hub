@@ -1,0 +1,14 @@
+<div class="row">
+  <% @offers.each do |offer| %>
+    <div class="col-4">
+      <div class="card-product">
+        <%= cl_image_tag offer.photo.key, height: 200, crop: :fill %>
+        <div class="card-product-infos">
+          <h2>Jogador: <%= offer.player_name %></h2>
+          <p>Pedido de troca: <%= offer.description %></p>
+          <%= link_to 'Ver detalhes', offer_path(offer), class: "btn btn-outline-secondary btn-sm"%>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

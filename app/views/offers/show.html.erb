@@ -1,28 +1,24 @@
+<h1 class="fw-bolder text-center py-5">Offer</h1>
 
-<div class ="container">
+<div class="row">
+  <div class="col-md-auto">
+      <%= cl_image_tag @offer.photo.key, height: 400, crop: :fill %>
+  </div>
+  <div class="col player">
+    <h2 class="fw-bold">Nome do jogador: <%= @offer.player_name %></h2>
+    <p class="description fw-normal">Número da figurinha: <%= @offer.number %></p>
+    <p class="description fw-normal">Pedido de troca: <%= @offer.description %></p>
 
-  <h1 class="fw-bolder text-center py-5">Offer</h1>
+    <h3>Dados de contato</h3>
+    <p class="description fw-normal">Nome: <%= @offer.user.first_name %></p>
+    <p class="description fw-normal">Email: <%= @offer.user.email %></p>
 
-  <div class="row">
-      <div class="col-md-auto">
-          <%= cl_image_tag @offer.photo.key, height: 600, width: 400, crop: :fill %>
-
-      </div>
-      <div class="col player">
-      <h2 class=" fw-bold"><%= @offer.number %> <%= @offer.player_name %></h2>
-
-      <p class="description fw-normal"><%= @offer.description %></p>
-
-      <%= link_to "Delete",
-        offer_path(@offer),
-        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger"%>
-        
-        <%= link_to "Edit Offer", edit_offer_path(@offer) %>
-    </div>
-
-      </div>
-
-    </div>
-
-
+    <% if @offer.user == current_user %>
+      <%= link_to "Delete", offer_path(@offer), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger" %>
+      <%= link_to "Edit Offer", edit_offer_path(@offer), class: "btn btn-outline-secondary" %>
+    <% else %>
+      <%= link_to "Make transaction", new_offer_transaction_path(@offer), class: "btn btn-outline-secondary" %>
+    <% end %>
+  </div>
+  </div>
 </div>
