@@ -43,6 +43,10 @@ class OffersController < ApplicationController
     redirect_to offer_path(@offer.offer), status: :see_other
   end
 
+  def my
+    @offers = current_user.offers
+  end
+
   private
 
   def offer_params_edit
