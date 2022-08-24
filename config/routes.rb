@@ -4,5 +4,8 @@ Rails.application.routes.draw do
 
   resources :offers do
     resources :transactions, only: [:new, :create, :index, :edit, :update] # É necessário nestar outro resource, pois serão necessárias duas páginas. Sendo o transactions vinculada a offers. Pra criar uma transaction é preciso atribuir a uma seller_card_id
+    collection do
+      get :my
+    end
   end
 end
