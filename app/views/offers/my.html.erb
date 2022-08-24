@@ -2,8 +2,12 @@
   <h1>Your offers</h1>
 </div>
 
-<% if @offers.nil? %>
-  <%= "You haven't made any offers offers yet" %>
+<% if @offers.empty? %>
+  <div style="height: 80vh">
+      <%= "You haven't made any offers yet" %>
+  </div>
 <% else %>
-  <%= render "offercard", offers: @offers %>
+  <div style="height: 80vh">
+    <%= render "offercard", offers: @offers %>
+  </div>
 <% end %>
