@@ -2,14 +2,18 @@
 # 2. Display no Index
 # 3. Criar um link de aceite que vai levar pra toda de update de transactions %>
 
-<h1>Cheguei</h1>
+<h1>Your Transactions</h1>
 
-<% @transactions.each do |transaction| %>
+<% if @transactions.nil? %>
+  <%= "You haven't received any transactions offers yet" %>
+<% else %>
+  <% @transactions.each do |transaction| %>
   <%= transaction.seller_card.player_name %>
   <%= transaction.buyer_card.player_name %>
 
   <%= link_to  transaction_path(transaction), data: {turbo_method: :delete, turbo_confirm: "Do you want to reject this transaction?"} do %>
     <i class="fa-solid fa-trash-can"></i>
   <% end %>
-   <%= link_to "Aceitar a transaction!", transaction_path(transaction), data: {turbo_method: :patch}, class: "btn btn-flat" %>
+  <%= link_to "Aceitar a transaction!", transaction_path(transaction), data: {turbo_method: :patch}, class: "btn btn-flat" %>
+  <% end %>
 <% end %>

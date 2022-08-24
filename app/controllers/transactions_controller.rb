@@ -42,7 +42,7 @@ class TransactionsController < ApplicationController
     seller_card.update(user: @transaction.buyer)
     buyer_card = Offer.find(@transaction.buyer_card.id)
     buyer_card.update(user: current_user)
-    raise if @transaction.save!
+    @transaction.save!
     # No need for app/views/restaurants/update.html.erb
     redirect_to transactions_path
   end
