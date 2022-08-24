@@ -1,7 +1,7 @@
 class TransactionsController < ApplicationController
 
   def index
-    @transactions = Transaction.all
+    @transactions = Transaction.where(seller: current_user).where(accepted: false)
   end
 
   def new
@@ -35,16 +35,28 @@ class TransactionsController < ApplicationController
     @transaction = Transaction.find(params[:id])
   end
 
+  def update
+    @transaction = Transaction.find(params[:id])
+    @transaction.accepted = true
+    seller_card = Offer.find(@transaction.seller_card.id)
+    seller_card.update(user: @transaction.buyer)
+    buyer_card = Offer.find(@transaction.buyer_card.id)
+    buyer_card.update(user: current_user)
+    raise if @transaction.save!
+    # No need for app/views/restaurants/update.html.erb
+    redirect_to transactions_path
+  end
+
   def destroy
     @transaction = Transaction.find(params[:id])
     @transaction.destroy
-    redirect_to offer_path(@offer.offer), status: :see_other
+    redirect_to transactions_path, status: :see_other
   end
 
   private
 
   def transaction_params
-    params.require(:transaction).permit(:buyer_card_id, :accepted)
+    params.require(:transaction).permit(:buyer_card_id, :seller_card_id, :accepted)
   end
 
 end

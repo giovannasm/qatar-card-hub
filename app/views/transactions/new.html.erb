@@ -3,5 +3,4 @@
     <%= f.association :buyer_card, collection: Offer.where(user: current_user).order(:player_name), label_method: :player_name %>
     <%= f.submit class: "btn btn-dark" %>
   <% end %>
-
 </div>
