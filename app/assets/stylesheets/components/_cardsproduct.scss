@@ -1,4 +1,4 @@
-.card-product {
+.card-product-transaction {
   overflow: hidden;
   height: 120px;
   background: white;
@@ -7,19 +7,19 @@
   align-items: center;
 }
 
-.card-product img {
+.card-product-transaction img {
   height: 100%;
   width: 120px;
   object-fit: cover;
 }
 
-.card-product h2 {
+.card-product-transaction h2 {
   font-size: 16px;
   font-weight: bold;
   margin: 0;
 }
 
-.card-product p {
+.card-product-transaction p {
   font-size: 12px;
   line-height: 1.4;
   opacity: .7;
@@ -27,6 +27,17 @@
   margin-top: 8px;
 }
 
-.card-product .card-product-infos {
+.card-product-transaction .card-product-infos-transaction {
   padding: 16px;
+}
+
+.container-transaction-index{
+  display: flex;
+  flex-direction: column;
+}
+
+.sub-container-transaction{
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
 }

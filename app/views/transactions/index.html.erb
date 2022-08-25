@@ -14,14 +14,10 @@
   <%= link_to  transaction_path(transaction), data: {turbo_method: :delete, turbo_confirm: "Do you want to reject this transaction?"} do %>
     <i class="fa-solid fa-trash-can"></i>
   <% end %>
-  <%= link_to "Aceitar a troca", transaction_path(transaction), data: {turbo_method: :patch}, class: "btn btn-flat" %>
+  <%= link_to "Aceitar a troca", transaction_path(transaction), data: {turbo_method: :patch}, class: "btn btn-flat" %
   <% end %>
 <% end %>
-
-
 <h1>Transaction history</h1>
-
-
 <% if @history_transactions.empty? %>
   <div style="height: 45vh"><%= "Você não possui trocas" %></div>
 <% else %>
@@ -43,7 +39,6 @@
   </div>
   <% end %>
 <% end %>
-
 
 <div class="card-product">
   <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
