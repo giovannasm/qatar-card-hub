@@ -36,3 +36,14 @@
 .logoqatar {
   width: 100px;
 }
+
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  .footer {
+    font-size: 16px;
+    padding: 0;
+  }
+  .bola {
+    display: none;
+  }
+}
