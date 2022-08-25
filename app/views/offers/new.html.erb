@@ -4,7 +4,7 @@
 
 <div class = "container d-flex py-5 justify-content-center">
   <%= simple_form_for (@offer) do |f| %>
-    <%= f.input :number %>
+    <%= f.input :number , collection: 1..670 %>
     <%= f.input :player_name %>
     <%= f.input :team %>
     <%= f.input :special %>
