@@ -2,7 +2,7 @@ class TransactionsController < ApplicationController
 
   def index
     @transactions = Transaction.where(seller: current_user).where(accepted: false)
-    @history_transactions = Transaction.where("seller_id = ? OR buyer_id = ?", current_user, current_user)
+    @history_transactions = Transaction.where("seller_id = ? OR buyer_id = ?", current_user, current_user).where("accepted = ?", true)
   end
 
   def new
@@ -26,6 +26,7 @@ class TransactionsController < ApplicationController
     # Por default a transação não foi aceita: Accepted é false.
 
     if @transaction.save
+      flash[:notice] = "Trade request sent!"
       redirect_to offer_path(@offer)
     else
       render :new, status: :unprocessable_entity
