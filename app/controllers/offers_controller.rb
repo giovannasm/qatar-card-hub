@@ -1,6 +1,6 @@
 class OffersController < ApplicationController
   def index
-    @offers = Offer.all
+    @offers = Offer.available
   end
 
   def show
