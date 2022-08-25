@@ -2,10 +2,10 @@
 # 2. Display no Index
 # 3. Criar um link de aceite que vai levar pra toda de update de transactions %>
 
-<h1>Your Transactions</h1>
+<h1>Pending transaction</h1>
 
 <% if @transactions.empty? %>
-  <div style="height: 80vh"><%= "You haven't received any transactions offers yet" %></div>
+  <div><%= "You haven't received any transactions offers yet" %></div>
 <% else %>
   <% @transactions.each do |transaction| %>
   <%= transaction.seller_card.player_name %>
@@ -17,3 +17,38 @@
   <%= link_to "Aceitar a transaction!", transaction_path(transaction), data: {turbo_method: :patch}, class: "btn btn-flat" %>
   <% end %>
 <% end %>
+
+
+<h1>Transaction history</h1>
+
+
+<% if @history_transactions.empty? %>
+  <div style="height: 45vh"><%= "You have no transactions" %></div>
+<% else %>
+  <% @history_transactions.each do |transaction| %>
+  <div class = container>
+    <div class = card-product>
+      <div class = card-product-infos>
+        <h5>Seller Name: <strong><%= transaction.seller.username %></strong></h5>
+        <h5>Seller Card: <strong><%= transaction.seller_card.player_name %></strong></h5>
+      </div>
+    </div>
+
+    <div class = card-product>
+      <div class = card-product-infos>
+        <h5>Buyer Name: <strong><%= transaction.buyer.username %></strong></h5>
+        <h5>Buyer Card: <strong><%= transaction.buyer_card.player_name %></strong></h5>
+      </div>
+    </div>
+  </div>
+  <% end %>
+<% end %>
+
+
+<div class="card-product">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+  <div class="card-product-infos">
+    <h2>Product name</h2>
+    <p>Product description with <strong>relevant info</strong> only.</p>
+  </div>
+</div>
