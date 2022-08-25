@@ -12,6 +12,6 @@
 @import "pages/index";
 @import "pages/show";
 
-wrapper {
+.wrapper {
   min-height: calc(100vh - #{$footer-height});
 }
