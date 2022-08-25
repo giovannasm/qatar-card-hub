@@ -1,6 +1,6 @@
 <div class="row">
   <% @offers.each do |offer| %>
-    <div class="col-4">
+    <div class="col-sm-12 col-md-6 col-lg-4">
       <div class="card-product">
         <%= cl_image_tag offer.photo.key, height: 200, crop: :fill %>
         <div class="card-product-infos">
