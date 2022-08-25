@@ -3,7 +3,7 @@ class OffersController < ApplicationController
     if params[:query].present?
       @offers = Offer.search_offers(params[:query])
     else
-      @offers = Offer.all
+      @offers = Offer.available
     end
   end
 

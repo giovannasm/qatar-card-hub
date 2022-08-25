@@ -2,6 +2,7 @@ class TransactionsController < ApplicationController
 
   def index
     @transactions = Transaction.where(seller: current_user).where(accepted: false)
+    @history_transactions = Transaction.where("seller_id = ? OR buyer_id = ?", current_user, current_user)
   end
 
   def new
@@ -10,7 +11,7 @@ class TransactionsController < ApplicationController
   end
 
   def create
-    # É necessário qual offer está sendo criada uma transaction
+    # É necessário informar qual offer está sendo criada para uma transaction
     @offer = Offer.find(params[:offer_id])
     # Com o ID da offer, sabe-se quem é o user(seller)
     seller = @offer.user
@@ -42,6 +43,8 @@ class TransactionsController < ApplicationController
     seller_card.update(user: @transaction.buyer)
     buyer_card = Offer.find(@transaction.buyer_card.id)
     buyer_card.update(user: current_user)
+    seller_card.trade!
+    buyer_card.trade!
     @transaction.save!
     # No need for app/views/restaurants/update.html.erb
     redirect_to transactions_path
