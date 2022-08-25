@@ -5,7 +5,7 @@
 <h1>Your Transactions</h1>
 
 <% if @transactions.empty? %>
-  <div style="height: 80vh"><%= "You haven't received any transactions offers yet" %></div>
+  <div><%= "You haven't received any transactions offers yet" %></div>
 <% else %>
   <% @transactions.each do |transaction| %>
   <%= transaction.seller_card.player_name %>
