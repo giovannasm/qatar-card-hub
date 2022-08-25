@@ -6,4 +6,9 @@ class Offer < ApplicationRecord
   validates :number, :player_name, :team, :photo, :description, presence: true
   validates :number, numericality: { only_integer: true }
   validates :number, length: { in: 1..670 }
+
+  include PgSearch::Model
+  pg_search_scope :search_offers,
+                  against: %i[number player_name team description],
+                  using: { tsearch: { any_word: true } }
 end

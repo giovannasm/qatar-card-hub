@@ -1,0 +1,8 @@
+<%= form_with url: offers_path, method: :get, class: "d-flex" do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Encontre uma figurinha"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
