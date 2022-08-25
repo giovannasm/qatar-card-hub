@@ -23,8 +23,8 @@
       <h1>Offeror</h1>
       <h1>Proposer</h1>
     </div>
-    <div class = "sub-container-transaction justify-content-center">
       <% @history_transactions.each do |transaction| %>
+      <div class = "sub-container-transaction justify-content-center">
         <div class = "card-product-transaction">
           <%= cl_image_tag transaction.seller_card.photo.key, height: 400, crop: :fill %>
           <div class = "card-product-infos-transaction">
@@ -35,7 +35,7 @@
         </div>
         <div class = "card-product-transaction">
           <%= cl_image_tag transaction.buyer_card.photo.key, height: 400, crop: :fill %>
-          <div class = "card-product-infos">
+          <div class = "card-product-infos-transaction">
             <h5>Buyer Name: <strong><%= transaction.buyer.username %></strong></h5>
             <h5>Card Number: <strong><%= transaction.buyer_card.number %></strong></h5>
             <h5>Buyer Card: <strong><%= transaction.buyer_card.player_name %></strong></h5>
