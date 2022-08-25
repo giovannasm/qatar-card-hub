@@ -1,6 +1,11 @@
-<div>
-  <h1>Browse offers</h1>
-  <p>What are you looking for?</p>
-</div>
-
-<%= render "offercard", offers: @offers %>
+<% if @offers.empty? %>
+  <div>
+    <p>A figurinha que você procura ainda não existe</p>
+  </div>
+<% else %>
+  <div>
+    <h1>Procurar ofertas</h1>
+    <p>O que você procura?</p>
+  </div>
+  <%= render "offercard", offers: @offers %>
+<% end %>
