@@ -8,6 +8,7 @@ class TransactionsController < ApplicationController
   def new
     @offer = Offer.find(params[:offer_id])
     @transaction = Transaction.new
+    @cards = Offer.available.where(user: current_user).order(:player_name)
   end
 
   def create
