@@ -10,5 +10,8 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
-@import "pages/show"
+@import "pages/show";
 
+.wrapper {
+  min-height: calc(100vh - #{$footer-height});
+}

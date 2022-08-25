@@ -1,47 +1,49 @@
 <%# # 1. Index onde todas as transactions não foram aceitas e que o seller == current_user
 # 2. Display no Index
 # 3. Criar um link de aceite que vai levar pra toda de update de transactions %>
-<h1>Pending transaction</h1>
+
+<h1>Trocas pendentes</h1>
+
 <% if @transactions.empty? %>
-  <div><%= "You haven't received any transactions offers yet" %></div>
+  <div><%= "Você ainda não recebeu nenhuma proposta de troca" %></div>
 <% else %>
   <% @transactions.each do |transaction| %>
-    <%= transaction.seller_card.player_name %>
-    <%= transaction.buyer_card.player_name %>
-    <%= link_to  transaction_path(transaction), data: {turbo_method: :delete, turbo_confirm: "Do you want to reject this transaction?"} do %>
-      <i class="fa-solid fa-trash-can"></i>
-    <% end %>
-    <%= link_to "Aceitar a transaction!", transaction_path(transaction), data: {turbo_method: :patch}, class: "btn btn-flat" %>
+  <%= transaction.seller_card.player_name %>
+  <%= transaction.buyer_card.player_name %>
+
+  <%= link_to  transaction_path(transaction), data: {turbo_method: :delete, turbo_confirm: "Do you want to reject this transaction?"} do %>
+    <i class="fa-solid fa-trash-can"></i>
+  <% end %>
+  <%= link_to "Aceitar a troca", transaction_path(transaction), data: {turbo_method: :patch}, class: "btn btn-flat" %
   <% end %>
 <% end %>
 <h1>Transaction history</h1>
 <% if @history_transactions.empty? %>
-  <div style="height: 45vh"><%= "You have no transactions" %></div>
+  <div style="height: 45vh"><%= "Você não possui trocas" %></div>
 <% else %>
-  <div class = "container-transaction-index">
-    <div class = "justify-content-center d-flex">
-      <h1>Offeror</h1>
-      <h1>Proposer</h1>
+  <% @history_transactions.each do |transaction| %>
+  <div class = container>
+    <div class = card-product>
+      <div class = card-product-infos>
+        <h5>Nome do proprietário: <strong><%= transaction.seller.username %></strong></h5>
+        <h5>Figurinha do proprietário: <strong><%= transaction.seller_card.player_name %></strong></h5>
+      </div>
     </div>
-    <div class = "sub-container-transaction justify-content-center">
-      <% @history_transactions.each do |transaction| %>
-        <div class = "card-product-transaction">
-          <%= cl_image_tag transaction.seller_card.photo.key, height: 400, crop: :fill %>
-          <div class = "card-product-infos-transaction">
-            <h5>Offeror Name: <strong><%= transaction.seller.username %></strong></h5>
-            <h5>Card Number: <strong><%= transaction.seller_card.number %></strong></h5>
-            <h5>Player Name: <strong><%= transaction.seller_card.player_name %></strong></h5>
-          </div>
-        </div>
-        <div class = "card-product-transaction">
-          <%= cl_image_tag transaction.buyer_card.photo.key, height: 400, crop: :fill %>
-          <div class = "card-product-infos">
-            <h5>Buyer Name: <strong><%= transaction.buyer.username %></strong></h5>
-            <h5>Card Number: <strong><%= transaction.buyer_card.number %></strong></h5>
-            <h5>Buyer Card: <strong><%= transaction.buyer_card.player_name %></strong></h5>
-          </div>
-        </div>
+
+    <div class = card-product>
+      <div class = card-product-infos>
+        <h5>Nome do interessado: <strong><%= transaction.buyer.username %></strong></h5>
+        <h5>Figurinha do interessado: <strong><%= transaction.buyer_card.player_name %></strong></h5>
+      </div>
     </div>
   </div>
   <% end %>
 <% end %>
+
+<div class="card-product">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+  <div class="card-product-infos">
+    <h2>Nome do produto</h2>
+    <p>Mensagem com <strong>informações relevantes</strong> para possíveis interessados na figurinha (descrição, figurinhas aceitas na troca etc).</p>
+  </div>
+</div>

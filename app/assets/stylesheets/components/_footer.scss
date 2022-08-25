@@ -1,9 +1,9 @@
 .footer {
-  background: #F4F4F4;
+  background: #fffdfd;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 100px;
+  height: $footer-height;
   padding: 0px 50px;
   color: rgba(210, 204, 204, 0.7);
   bottom: 0px;
@@ -28,7 +28,7 @@
   color: #D23333;
 }
 
-.bola {
+.bola{
   width: 40px;
   border-radius: 50%;
 }

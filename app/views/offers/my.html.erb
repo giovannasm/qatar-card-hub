@@ -1,13 +1,13 @@
 <div>
-  <h1>Your offers</h1>
+  <h1>Suas figurinhas</h1>
 </div>
 
 <% if @offers.empty? %>
   <div>
-      <%= "You haven't made any offers yet" %>
+      <%= "Você ainda não publicou nenhuma figurinha" %>
   </div>
 <% else %>
-  <div style="height: 80vh">
+  <div>
     <%= render "offercard", offers: @offers %>
   </div>
 <% end %>
