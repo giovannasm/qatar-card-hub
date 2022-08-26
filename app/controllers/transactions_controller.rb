@@ -5,12 +5,6 @@ class TransactionsController < ApplicationController
     @history_transactions = Transaction.where("seller_id = ? OR buyer_id = ?", current_user, current_user).where("accepted = ?", true)
   end
 
-  def new
-    @offer = Offer.find(params[:offer_id])
-    @transaction = Transaction.new
-    @cards = Offer.available.where(user: current_user).order(:player_name)
-  end
-
   def create
     # É necessário informar qual offer está sendo criada para uma transaction
     @offer = Offer.find(params[:offer_id])

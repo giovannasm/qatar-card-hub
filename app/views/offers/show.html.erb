@@ -1,6 +1,6 @@
 <h1 class="fw-bolder text-center py-5">Figurinha</h1>
 
-<div class="row">
+<div data-controller="transaction" class="row">
   <div class="col-md-auto">
       <%= cl_image_tag @offer.photo.key, height: 400, crop: :fill %>
   </div>
@@ -16,8 +16,20 @@
       <%= link_to "Apagar", offer_path(@offer), data: {turbo_method: :delete, turbo_confirm: "Deseja mesmo apagar a figurinha?"}, class: "btn btn-danger" %>
       <%= link_to "Editar figurinha", edit_offer_path(@offer), class: "btn btn-outline-secondary" %>
     <% else %>
-      <%= link_to "Fazer transação", new_offer_transaction_path(@offer), class: "btn btn-outline-secondary" %>
+      <button class="btn btn-outline-secondary" data-action="click->transaction#renderForm">Fazer transação</button>
     <% end %>
+
+    <div class="container d-flex py-5 justify-content-center d-none" data-transaction-target="form">
+    <% if @cards.empty? %>
+    <h1>You have no cards to exchange</h1>
+    <%= link_to "Register card",  new_offer_path, class: "btn btn-dark" %>
+    <% else %>
+      <%= simple_form_for [@offer, @transaction] do |f| %>
+        <%= f.association :buyer_card, collection: @cards, label_method: :player_name %>
+        <%= f.submit class: "btn btn-dark" %>
+      <% end %>
+    <% end %>
+  </div>
   </div>
   </div>
 </div>
