@@ -19,17 +19,7 @@
       <button class="btn btn-outline-secondary" data-action="click->transaction#renderForm">Fazer transação</button>
     <% end %>
 
-    <div class="container d-flex py-5 justify-content-center d-none" data-transaction-target="form">
-    <% if @cards.empty? %>
-    <h1>You have no cards to exchange</h1>
-    <%= link_to "Register card",  new_offer_path, class: "btn btn-dark" %>
-    <% else %>
-      <%= simple_form_for [@offer, @transaction] do |f| %>
-        <%= f.association :buyer_card, collection: @cards, label_method: :player_name %>
-        <%= f.submit class: "btn btn-dark" %>
-      <% end %>
-    <% end %>
-  </div>
-  </div>
+    <%= render "transactionform" %>
+    </div>
   </div>
 </div>
