@@ -13,9 +13,8 @@
 
 .nav-link{
   color: $white;
-}
+  &:hover {
+    color: $yellow;
 
-p:hover, h1:hover, a:hover {
-  font-size: none;
-  color: greenyellow;
+  }
 }

@@ -7,7 +7,7 @@
 
 
 <% if @transactions.empty? %>
-  <div class = "pb-5"><%= "You haven't received any transactions offers yet" %></div>
+  <div class = "pb-5"><%= "Você ainda não possui trocas" %></div>
 <% else %>
   <div class = "row py-5 justify-content-center">
     <% @transactions.each do |transaction| %>
@@ -22,7 +22,7 @@
           <%= cl_image_tag transaction.buyer_card.photo.key, height: 150, crop: :fill %>
         </div>
         <div></div>
-        <%= link_to  transaction_path(transaction), data: {turbo_method: :delete, turbo_confirm: "Do you want to reject this transaction?"} do %>
+        <%= link_to  transaction_path(transaction), data: {turbo_method: :delete, turbo_confirm: "Deseja mesmo rejeitar a troca?"} do %>
           <i class= "fa-solid fa-xmark no-mark"></i>
         <% end %>
         <%= link_to transaction_path(transaction), data: {turbo_method: :patch} do %>
@@ -36,10 +36,10 @@
 
 
 <div class = "history-transaction">
-  <h1>Histórico de Transação</h1>
+  <h1>Histórico de trocas</h1>
 </div>
 <% if @history_transactions.empty? %>
-  <div style="height: 45vh"><%= "You have no transactions" %></div>
+  <div style="height: 45vh"><%= "Você não possui trocas" %></div>
 <% else %>
   <div class = "container-transaction-index">
     <div class = "title justify-content-center d-flex">
@@ -51,17 +51,17 @@
         <div class = "card-product-transaction mb-4 col-sm-12 col-md-6 col-lg-4">
           <%= cl_image_tag transaction.seller_card.photo.key, height: 400, crop: :fill %>
           <div class = "card-product-infos-transaction">
-            <h5>Offeror Name: <strong><%= transaction.seller.username %></strong></h5>
-            <h5>Card Number: <strong><%= transaction.seller_card.number %></strong></h5>
-            <h5>Player Name: <strong><%= transaction.seller_card.player_name %></strong></h5>
+            <h5>Nome do proprietário: <strong><%= transaction.seller.username %></strong></h5>
+            <h5>Número da figurinha: <strong><%= transaction.seller_card.number %></strong></h5>
+            <h5>Nome do jogador: <strong><%= transaction.seller_card.player_name %></strong></h5>
           </div>
         </div>
         <div class = "card-product-transaction mb-4 col-sm-12 col-md-6 col-lg-4">
           <%= cl_image_tag transaction.buyer_card.photo.key, height: 400, crop: :fill %>
           <div class = "card-product-infos-transaction">
-            <h5>Buyer Name: <strong><%= transaction.buyer.username %></strong></h5>
-            <h5>Card Number: <strong><%= transaction.buyer_card.number %></strong></h5>
-            <h5>Buyer Card: <strong><%= transaction.buyer_card.player_name %></strong></h5>
+            <h5>Nome do interessado: <strong><%= transaction.buyer.username %></strong></h5>
+            <h5>Número da figurinha: <strong><%= transaction.buyer_card.number %></strong></h5>
+            <h5>Figurinha do interessado: <strong><%= transaction.buyer_card.player_name %></strong></h5>
           </div>
         </div>
       </div>

@@ -14,9 +14,9 @@
 
     <% if @offer.user == current_user %>
       <%= link_to "Apagar", offer_path(@offer), data: {turbo_method: :delete, turbo_confirm: "Deseja mesmo apagar a figurinha?"}, class: "btn btn-danger" %>
-      <button class="btn btn-outline-secondary" data-action="click->offer#renderForm">Editar figurinha</button>
+      <button class="btn btn-primary" data-action="click->offer#renderForm">Editar figurinha</button>
     <% else %>
-      <button class="btn btn-outline-secondary" data-action="click->transaction#renderForm">Fazer transação</button>
+      <button class="btn btn-primary" data-action="click->transaction#renderForm">Trocar</button>
     <% end %>
 
     <%= render "offers/transactionform", locals: { offer: @offer, transaction: @transaction, cards: @cards } %>
