@@ -1,29 +1,46 @@
 <%# # 1. Index onde todas as transactions não foram aceitas e que o seller == current_user
 # 2. Display no Index
 # 3. Criar um link de aceite que vai levar pra toda de update de transactions %>
-<h1>Pending transaction</h1>
+<div class = "pending-transaction">
+  <h1>Transações Pendentes</h1>
+</div>
 <% if @transactions.empty? %>
-  <div><%= "You haven't received any transactions offers yet" %></div>
+  <div class = "pb-5"><%= "You haven't received any transactions offers yet" %></div>
 <% else %>
-  <% @transactions.each do |transaction| %>
-    <%= transaction.seller_card.player_name %>
-    <%= transaction.buyer_card.player_name %>
-    <%= link_to  transaction_path(transaction), data: {turbo_method: :delete, turbo_confirm: "Do you want to reject this transaction?"} do %>
-      <i class="fa-solid fa-trash-can"></i>
+  <div class = "row py-5 justify-content-center">
+    <% @transactions.each do |transaction| %>
+      <div class = "white-square ms-2 col-4">
+        <div class = "text-center">
+          <h2>Teste</h2>
+          <%= cl_image_tag transaction.seller_card.photo.key, height: 150, crop: :fill %>
+        </div>
+        <i class= "fa-solid fa-right-left trade-arrow"></i>
+        <div  class = "text-center-buyer">
+          <h2>Teste 2</h2>
+          <%= cl_image_tag transaction.buyer_card.photo.key, height: 150, crop: :fill %>
+        </div>
+        <%= link_to  transaction_path(transaction), data: {turbo_method: :delete, turbo_confirm: "Do you want to reject this transaction?"} do %>
+          <i class= "fa-solid fa-xmark no-mark"></i>
+        <% end %>
+        <%= link_to transaction_path(transaction), data: {turbo_method: :patch} do %>
+          <i class= "fa-solid fa-check yes-mark"></i>
+        <% end %>
+      </div>
     <% end %>
-    <%= link_to "Aceitar a transaction!", transaction_path(transaction), data: {turbo_method: :patch}, class: "btn btn-flat" %>
-  <% end %>
+  </div>
 <% end %>
-<h1>Transaction history</h1>
+<div class = "history-transaction">
+  <h1>Histórico de Transação</h1>
+</div>
 <% if @history_transactions.empty? %>
   <div style="height: 45vh"><%= "You have no transactions" %></div>
 <% else %>
   <div class = "container-transaction-index">
-    <div class = "justify-content-center d-flex">
-      <h1>Offeror</h1>
-      <h1>Proposer</h1>
+    <div class = "title justify-content-center d-flex">
+      <h1>Interessado</h1>
+      <h1>Proprietário</h1>
     </div>
-      <% @history_transactions.each do |transaction| %>
+    <% @history_transactions.each do |transaction| %>
       <div class = "sub-container-transaction justify-content-center">
         <div class = "card-product-transaction mb-4 col-sm-12 col-md-6 col-lg-4">
           <%= cl_image_tag transaction.seller_card.photo.key, height: 400, crop: :fill %>
@@ -41,7 +58,7 @@
             <h5>Buyer Card: <strong><%= transaction.buyer_card.player_name %></strong></h5>
           </div>
         </div>
+      </div>
     </div>
-  </div>
   <% end %>
 <% end %>

@@ -1,3 +1,45 @@
+.cards-transaction {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+}
+
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  .cards-transaction {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .cards-transaction {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .cards-transaction {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .cards-transaction {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .cards-transaction {
+    grid-template-columns: 1fr 1fr 1fr;
+
+  }
+}
+
 .card-product-transaction {
   overflow: hidden;
   height: 120px;
@@ -41,4 +83,59 @@
   display: flex;
   flex-direction: row;
   gap: 3rem;
+}
+
+.white-square{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  position: relative;
+  object-fit: cover;
+  width: 520px;
+  height: 200x;
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 15px;
+}
+
+.trade-arrow{
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.yes-mark{
+position: absolute;
+font-size: 1.5rem;
+font-weight: 700;
+color: green;
+top: 184px;
+right: 215px;
+}
+
+.no-mark{
+position: absolute;
+font-size: 1.5rem;
+font-weight: 700;
+color: red;
+top: 184px;
+right: 120px;
+}
+
+.title{
+  gap: 507px;
+}
+
+.pending-transaction{
+  color: white;
+  background-image: linear-gradient(to right, rgb(8, 8, 8) , rgb(129, 129, 129));
+  border-radius: 0.5rem;
+}
+
+.history-transaction{
+  color: white;
+  background-image: linear-gradient(to right, rgb(8, 8, 8) , rgb(129, 129, 129));
+  border-radius: 0.5rem;
 }
