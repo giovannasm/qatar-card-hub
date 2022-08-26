@@ -10,6 +10,7 @@ class OffersController < ApplicationController
   def show
     @offer = Offer.find(params[:id])
     @transaction = Transaction.new
+    @cards = Offer.available.where(user: current_user).order(:player_name)
   end
 
   def new
@@ -27,9 +28,9 @@ class OffersController < ApplicationController
     end
   end
 
-  def edit
-    @offer = Offer.find(params[:id])
-  end
+  # def edit
+  #   @offer = Offer.find(params[:id])
+  # end
 
   def update
     @offer = Offer.find(params[:id])

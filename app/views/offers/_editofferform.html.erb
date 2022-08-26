@@ -1,0 +1,11 @@
+<div class="d-none mt-3" data-offer-target="form">
+  <%= simple_form_for(@offer) do |f| %>
+    <div class="form-inputs">
+      <%= f.input :description %>
+    </div>
+
+      <div class="form-actions">
+      <%= f.button :submit, class: "btn btn-flat" %>
+    </div>
+  <% end %>
+</div>
