@@ -9,26 +9,35 @@
 
 <% if @transactions.empty? %>
   <div class = "pb-5"><%= "Você ainda não possui trocas" %></div>
+
 <% else %>
-  <div class = "row py-5 justify-content-center">
-    <% @transactions.each do |transaction| %>
-      <div class = "white-square ms-2 col-4">
-        <div class = "text-center">
-          <h2>Proprietário</h2>
-          <%= cl_image_tag transaction.seller_card.photo.key, height: 150, crop: :fill %>
+  <div class="d-flex justify-content-center">
+    <div class = "row py-5 justify-content-center">
+      <% @transactions.each do |transaction| %>
+        <div class = "white-square ms-2 col-4">
+
+          <div class = "text-center">
+            <h2>Proprietário</h2>
+            <%= cl_image_tag transaction.seller_card.photo.key, height: 150, crop: :fill %>
+          </div>
+
+          <i class= "fa-solid fa-right-left trade-arrow"></i>
+
+          <div  class = "text-center-buyer">
+            <h2>Interessado</h2>
+            <%= cl_image_tag transaction.buyer_card.photo.key, height: 150, crop: :fill %>
+          </div>
         </div>
-        <i class= "fa-solid fa-right-left trade-arrow"></i>
-        <div  class = "text-center-buyer">
-          <h2>Interessado</h2>
-          <%= cl_image_tag transaction.buyer_card.photo.key, height: 150, crop: :fill %>
-        </div>
-        <div></div>
-        <%= link_to  transaction_path(transaction), data: {turbo_method: :delete, turbo_confirm: "Deseja mesmo rejeitar a troca?"} do %>
+        <div class="d-flex w-75 justify-content-around mt-2 bg-white" style="font: size 46px;">
+          <%= link_to  transaction_path(transaction), data: {turbo_method: :delete, turbo_confirm: "Deseja mesmo rejeitar a troca?"} do %>
           <i class= "fa-solid fa-xmark no-mark"></i>
-        <% end %>
-        <%= link_to transaction_path(transaction), data: {turbo_method: :patch} do %>
+          <% end %>
+
+          <%= link_to transaction_path(transaction), data: {turbo_method: :patch} do %>
           <i class= "fa-solid fa-check yes-mark"></i>
-        <% end %>
+          <% end %>
+        </div>
+    </div>
       </div>
     <% end %>
   </div>
@@ -51,7 +60,7 @@
       <div class = "sub-container-transaction justify-content-center">
         <div class = "card-product-transaction mb-4 col-sm-12 col-md-6 col-lg-4">
           <%= cl_image_tag transaction.seller_card.photo.key, height: 400, crop: :fill %>
-          <div class = "card-product-infos-transaction">
+          <div class = "card-product-infos-transaction p-5">
             <h5>Nome do proprietário: <strong><%= transaction.seller.username %></strong></h5>
             <h5>Número da figurinha: <strong><%= transaction.seller_card.number %></strong></h5>
             <h5>Nome do jogador: <strong><%= transaction.seller_card.player_name %></strong></h5>
