@@ -4,7 +4,7 @@
   <div class="col-md-auto">
       <%= cl_image_tag @offer.photo.key, height: 400, crop: :fill %>
   </div>
-  <div class="col player">
+  <div class="col player" data-controller="offer" >
     <h2 class="fw-bold">Nome do jogador: <%= @offer.player_name %></h2>
     <p class="description fw-normal">Número da figurinha: <%= @offer.number %></p>
     <p class="description fw-normal">Pedido de troca: <%= @offer.description %></p>
@@ -14,12 +14,13 @@
 
     <% if @offer.user == current_user %>
       <%= link_to "Apagar", offer_path(@offer), data: {turbo_method: :delete, turbo_confirm: "Deseja mesmo apagar a figurinha?"}, class: "btn btn-danger" %>
-      <%= link_to "Editar figurinha", edit_offer_path(@offer), class: "btn btn-outline-secondary" %>
+      <button class="btn btn-outline-secondary" data-action="click->offer#renderForm">Editar figurinha</button>
     <% else %>
       <button class="btn btn-outline-secondary" data-action="click->transaction#renderForm">Fazer transação</button>
     <% end %>
 
     <%= render "transactionform" %>
+    <%= render "editofferform" %>
     </div>
   </div>
 </div>
