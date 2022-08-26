@@ -1,11 +1,11 @@
 <div class="container d-flex py-5 d-none" data-transaction-target="form">
     <% if locals[:cards].empty? %>
-    <h1>You don't have cards to exchange</h1>
-    <%= link_to "Register card",  new_offer_path, class: "btn btn-dark" %>
+    <h1>Você não tem figurinhas</h1>
+    <%= link_to "Cadastrar figurinha",  new_offer_path, class: "btn btn-primary" %>
     <% else %>
       <%= simple_form_for [@offer, @transaction] do |f| %>
         <%= f.association :buyer_card, collection: @cards, label_method: :player_name %>
-        <%= f.submit class: "btn btn-dark" %>
+        <%= f.submit class: "btn btn-primary" %>
       <% end %>
     <% end %>
 </div>
