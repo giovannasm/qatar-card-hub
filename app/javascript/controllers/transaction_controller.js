@@ -7,7 +7,7 @@ export default class extends Controller {
     console.log('transaction controller conected')
   }
 
-  renderForm() {
+  renderForm(event) {
     console.log(this.formTarget)
     this.formTarget.classList.toggle("d-none")
   }

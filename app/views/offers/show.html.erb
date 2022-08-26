@@ -19,8 +19,8 @@
       <button class="btn btn-outline-secondary" data-action="click->transaction#renderForm">Fazer transação</button>
     <% end %>
 
-    <%= render "transactionform" %>
-    <%= render "editofferform" %>
+    <%= render "offers/transactionform", locals: { offer: @offer, transaction: @transaction, cards: @cards } %>
+    <%= render "offers/editofferform" %>
     </div>
   </div>
 </div>

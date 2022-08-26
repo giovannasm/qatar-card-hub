@@ -6,6 +6,7 @@ class TransactionsController < ApplicationController
   end
 
   def create
+    @cards = Offer.available.where(user: current_user).order(:player_name)
     # É necessário informar qual offer está sendo criada para uma transaction
     @offer = Offer.find(params[:offer_id])
     # Com o ID da offer, sabe-se quem é o user(seller)
@@ -23,8 +24,9 @@ class TransactionsController < ApplicationController
     if @transaction.save
       flash[:notice] = "Trade request sent!"
       redirect_to offer_path(@offer)
+      # redirect_to success_path, status: :see_other
     else
-      render :new, status: :unprocessable_entity
+      render 'offers/show', status: :unprocessable_entity
     end
   end
 

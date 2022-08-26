@@ -1,6 +1,6 @@
 <div class="container d-flex py-5 d-none" data-transaction-target="form">
-    <% if @cards.empty? %>
-    <h1>You have no cards to exchange</h1>
+    <% if locals[:cards].empty? %>
+    <h1>You don't have cards to exchange</h1>
     <%= link_to "Register card",  new_offer_path, class: "btn btn-dark" %>
     <% else %>
       <%= simple_form_for [@offer, @transaction] do |f| %>
