@@ -1,14 +1,16 @@
-<div class="row">
-  <% @offers.each do |offer| %>
-    <div class="col-sm-12 col-md-6 col-lg-4">
-      <div class="card-product">
-        <%= cl_image_tag offer.photo.key, height: 200, crop: :fill %>
-        <div class="card-product-infos">
-          <h2>Jogador: <%= offer.player_name %></h2>
-          <p>Pedido de troca: <%= offer.description %></p>
+<% @offers.each do |offer| %>
+    <div class="card shadow-sm mb-3" style="max-width: 540px;">
+    <div class="row">
+      <div class="col-md-4">
+      <%= cl_image_tag offer.photo.key, class: "img-fluid rounded-start" %>
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title"><%= offer.player_name %></h5>
+          <p class="card-text">Pedido de troca: <%= offer.description %></p>
           <%= link_to 'Ver detalhes', offer_path(offer), class: "btn btn-primary btn-sm"%>
         </div>
       </div>
     </div>
-  <% end %>
-</div>
+  </div>
+<% end %>
