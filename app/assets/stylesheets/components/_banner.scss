@@ -1,21 +1,25 @@
-.carousel-inner {
+.fixed-400 {
   height: 400px;
 }
 
-.carousel {
-  height: 400px;
+.absolute {
+  position: absolute;
 }
-
 .banner-carousel {
   position: relative;
+  margin-bottom: 25px;
+}
+
+.row {
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .text-banner {
-  position: absolute;
-  top: 25%;
-  margin: 0 auto;
+  z-index: 100;
   padding: 16px;
   color:white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   font-size: 24px;
+  width: 39%; // arrumar se for pra fazer responsivo
 }

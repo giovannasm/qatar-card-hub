@@ -1,20 +1,21 @@
 <div class="banner-carousel">
-  <div id="carouselExampleSlidesOnly" class="carousel slide mb-5" data-bs-ride="carousel">
-    <div class="carousel-inner">
-      <div class="carousel-item active" data-bs-interval="1500" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4))">
-        <img src="<%= image_path "taca.jpg" %>" class="d-block w-100" alt="Photo1" style="transform: translateY(-150px);">
+  <div class="carousel fixed-400 slide mb-5 absolute" data-bs-ride="carousel">
+    <div class="carousel-inner fixed-400">
+      <div class="carousel-item active" data-bs-interval="5000">
+        <img src="<%= image_path "taca.jpg" %>" class="d-block w-100" alt="Taça da copa do mundo">
       </div>
-      <div class="carousel-item" data-bs-interval="1500" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4))">
-        <img src="https://images.unsplash.com/photo-1602019197730-4cad21861239?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" class="d-block w-100" alt="Photo2">
-      </div>
-      <div class="carousel-item" data-bs-interval="2000" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4))">
-        <img src="https://images.unsplash.com/photo-1490108474814-221f6198acc5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2076&q=80" class="d-block w-100" alt="Photo3" style="transform: translateY(-200px);">
+      <div class="carousel-item" data-bs-interval="5000">
+        <img src="https://images.unsplash.com/photo-1490108474814-221f6198acc5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2076&q=80" class="d-block w-100" alt="Zoom de um goleiro na frente de um gol de futebol">
       </div>
     </div>
   </div>
-  <div class="text-banner">
-    <h1>Qatar Card Hub</h1>
-    <p>Troque suas figurinhas da Copa do Mundo 2022</p>
-    <%= render "shared/searchform", id: "search" %>
+  <div class="container">
+    <div class="row fixed-400">
+      <div class="text-banner">
+        <h1>Qatar Card Hub</h1>
+        <p>Troque suas figurinhas da Copa do Mundo</p>
+        <%= render "shared/searchform", id: "search" %>
+      </div>
+    </div>
   </div>
 </div>
