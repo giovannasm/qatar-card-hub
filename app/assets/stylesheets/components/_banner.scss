@@ -24,3 +24,56 @@
   font-size: 24px;
   width: 39%; // arrumar se for pra fazer responsivo
 }
+
+.banner {
+  padding-top: 106px;
+  margin-bottom: 16px;
+}
+
+@media (min-width: 100px) and (max-width: 575px) {
+  .banner-carousel {
+    display: none;
+  }
+
+  .text-banner {
+    width: 80%;
+  }
+}
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  .banner-carousel {
+    display: none;
+  }
+
+  .text-banner {
+    width: 80%;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .banner {
+    display: none;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .banner {
+    display: none;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .banner {
+    display: none;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .banner {
+    display: none;
+  }
+}
