@@ -29,3 +29,14 @@
     color: $yellow;
   }
 }
+
+@media (min-width: 100px) and (max-width: 575px) {
+  .navbar-lewagon {
+    background-color: rgba(84, 22, 144, 0.7);
+    transition: 0.5s background-color ease;
+    }
+
+  .navbar-lewagon-purple {
+    background: rgb(84, 22, 144);
+  }
+}
