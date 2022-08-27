@@ -1,15 +1,15 @@
 <div class = "container d-flex py-5 justify-content-center">
-  <h1>Cadastrar figurinhas</h1>
+  <h3>Cadastrar figurinhas</h3>
 </div>
 
-<div class = "container d-flex py-5 justify-content-center">
+<div class = "container d-flex justify-content-center">
   <%= simple_form_for (@offer) do |f| %>
-    <%= f.input :number , collection: 1..670 %>
-    <%= f.input :player_name %>
-    <%= f.input :team %>
-    <%= f.input :special %>
-    <%= f.input :description %>
-    <%= f.input :photo, as: :file %>
-    <%= f.button :submit, "Criar figurinha", class: "btn btn-primary" %>
+    <%= f.input :number, collection: 1..670, label: "Número da figurinha" %>
+    <%= f.input :player_name, label: "Nome do jogador" %>
+    <%= f.input :team, label: "Seleção" %>
+    <%= f.input :special, label: "Essa é uma figurinha especial?" %>
+    <%= f.input :description, label: "Pedido de troca" %>
+    <%= f.input :photo, as: :file, label: "Foto da figurinha" %>
+    <%= f.button :submit, "Criar figurinha", class: "btn btn-primary m-0" %>
   <% end %>
 </div>

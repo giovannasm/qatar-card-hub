@@ -1,11 +1,11 @@
 <div class="d-none mt-3" data-offer-target="form">
   <%= simple_form_for(@offer) do |f| %>
     <div class="form-inputs">
-      <%= f.input :description %>
+      <%= f.input :description, label: "Pedido de troca" %>
     </div>
 
       <div class="form-actions">
-      <%= f.button :submit, "Editar pedido de troca", class: "btn btn-primary" %>
+      <%= f.button :submit, "Editar pedido de troca", class: "btn btn-primary m-0" %>
     </div>
   <% end %>
 </div>
