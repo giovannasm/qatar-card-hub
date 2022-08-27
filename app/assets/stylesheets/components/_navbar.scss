@@ -11,6 +11,13 @@
   width: 80px;
 }
 
+.nav-item{
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  padding: 0 1rem;
+  font-weight: 600;
+}
+
 .nav-link{
   color: $white;
   &:hover {
