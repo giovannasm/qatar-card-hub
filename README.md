@@ -1,3 +1,2 @@
-Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
-
-[Link do projeto](https://qatar-card-hub.herokuapp.com/)
+Qatar Card Hub (https://qatar-card-hub.herokuapp.com/) is a web app for people who want to trade World Cup
+stickers. This group project was developed during Le Wagon.
